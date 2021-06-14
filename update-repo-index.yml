@@ -11,3 +11,6 @@
       force_apt_get: true
       state: latest
     when: ansible_distribution in ["ClearLinux","Ubuntu"]
+
+  - name: Rebooting systems
+    reboot:

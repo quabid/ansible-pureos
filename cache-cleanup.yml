@@ -1,6 +1,6 @@
 ---
 
-- hosts: saintjohnsnetwork
+- hosts: sjh
   become: true
   tasks:
 

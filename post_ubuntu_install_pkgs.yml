@@ -15,6 +15,10 @@
          - xscreensaver
          - xscreensaver-gl
          - xscreensaver-gl-extra
+         - tree
+         - htop
+         - gcc
+         - shc
        state: latest
        update_cache: yes
     when: ansible_distribution in ["Ubuntu"]
