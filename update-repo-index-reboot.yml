@@ -6,11 +6,17 @@
 
   - name: Update system repository index
     package:
-      name: "*"
       update_cache: yes
+    when: ansible_distribution in ["ClearLinux","Ubuntu"]
+
+  - name: Upgrade packages
+    package:
+      name: "*"
       force_apt_get: true
       state: latest
     when: ansible_distribution in ["ClearLinux","Ubuntu"]
 
   - name: Rebooting systems
     reboot:
+      msg: "This system has been updated and now it needs to reboot"
+      reboot_timeout: 23
