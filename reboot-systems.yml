@@ -1,0 +1,10 @@
+---
+
+- hosts: sjh
+  become: true
+  tasks:
+
+  - name: Rebooting systems
+    reboot:
+      msg: "This system is down for a reboot"
+      reboot_timeout: 65

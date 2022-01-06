@@ -4,19 +4,15 @@
   become: true
   tasks:
 
-  - name: Update system repository index
+  - name: Upgrading system release
     package:
-      update_cache: yes
+      name: "*"
+      command: default_release
     when: ansible_distribution in ["ClearLinux","Ubuntu"]
 
-  - name: Upgrade packages
+  - name: Post release upgrade update
     package:
       name: "*"
       force_apt_get: true
       state: latest
     when: ansible_distribution in ["ClearLinux","Ubuntu"]
-
-  - name: Rebooting systems
-    reboot:
-      msg: "This system has been updated and now it needs to reboot"
-      reboot_timeout: 163
